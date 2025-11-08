@@ -1,0 +1,61 @@
+///Where
+
+select * from books where category ="tech";
+
+select * from books where pub_date>" 2023-03-01 and price < 30.00";
+
+select * from books where pub_date>" 2023-03-01 Or price < 30.00";
+
+// finding null
+
+select * from books where author is null;
+select * from books where author is not null;
+
+select * from books where author = null  /// it will not work at all it return unknown
+
+
+// pattern matching
+
+select * from books where title like '%SQL%'  - case insensitive; sql anywhere
+
+select * from books where title like binary 'the%' - case sensitive; stats from the
+
+select * from book where title like '_ohn%' - only one random char is allowed before ohn
+
+//between
+
+select * from books where price between 20 and 30 ; including
+
+select * from books where category in ("tech", "comic","drama")
+
+
+//// order by used for sorting
+
+select * from products order by price desc;
+
+select * from products order by category, price; // first by category and then by price if category is same.
+
+
+
+///custom ordering/sorting
+
+select * from products order by field(category, "electronics", " Appliances", "Household"), price desc;
+
+select * from products order by
+case
+    when quantity <= 50 and price > = 200 then 1
+    when quantity < 50 then 2
+    else 3
+end
+
+select *,
+case
+  where quantity < 50 then 1
+  else 3
+end as priority from products order by priority;
+
+
+
+
+
+
