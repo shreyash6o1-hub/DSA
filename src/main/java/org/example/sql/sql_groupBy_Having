@@ -1,0 +1,25 @@
+//Group By and Having clause
+
+select department, count(*) from employees group by department;
+
+select department, min(salary), max(salary) from employees group by department;
+
+select department, year(joining_date) as joining_year, count(*) from employees group by year(joining_date),department;
+
+
+// group emp in salary ranges
+select count(*),
+    case
+        when salary< 60000 then 'low Salary'
+        else 'high salary
+    end as salary_range
+ from employees group by salary_range;
+
+
+// find department with macimum number of emp.
+ select department, count(*) as total_emp from employees group by department order by total_emp desc limit 1;
+
+
+
+// dep with more than 2 emp
+ select department, count(*) as emp_count from employees group by department having emp_count>=2;
