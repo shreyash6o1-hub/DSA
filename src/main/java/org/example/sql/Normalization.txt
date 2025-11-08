@@ -1,0 +1,16 @@
+/// 1NF - First Normal Form
+-- Each column contains atomic (non seperable/ indivisible values)
+-- Each column contains values of same type
+-- Each row is unique
+-- No repeating groups of columns
+
+
+/// 2NF - Second Normal Form
+-- All Non key attributes must be fully functionally dependant on the entire primary key
+-- No partial dependencies on primary key field/fields.
+
+
+
+/// 3NF - Third Normal Form
+-- Must not have Transitive dependencies
+-- i.e Non key attributes should not depend on other non key attributes
