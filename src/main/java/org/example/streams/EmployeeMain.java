@@ -54,5 +54,9 @@ public class EmployeeMain {
         //Task 11 -> List of employee in each department
         Map<String, List<String>>mp = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Employee::getName,Collectors.toList())));
 
-    }
+      //  Task 14 : 	Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years
+    Map<Boolean,List<Employee>> mp1	= employees.stream()
+			 .collect(Collectors.partitioningBy(x->x.getAge()>25));
+    System.out.println(" Employee having age > 25 " + mp1.get(true) + " Employee having age <25 " + mp1.get(false));
+
 }
