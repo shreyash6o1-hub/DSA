@@ -1,0 +1,22 @@
+//JOIN or INNER JOIN
+select * from
+authors as a INNER JOIN books as b
+on author.author_id = books.author_id
+
+// How many books written by each author
+select a.first_name, count(*) from
+authors as a join books as b group by a.author_id
+
+// we have authors table, books table , categories table and book_categories
+table since many to many relations in books and categories
+
+select b.title,
+       a.first_name,
+       GROUP_CONCAT(c.category_name)
+from books as b join authors as a
+on b.author_id = a.author_id
+join book_categories as bc
+on bc.book_id = b.book_id
+join categories as c
+On c.category_id = bc.category_id
+Group By b.book_Id  //return boolk deatils ans , seperated list of categories
